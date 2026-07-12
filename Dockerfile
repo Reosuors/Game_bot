@@ -1,14 +1,14 @@
 FROM node:18-slim
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# نسخ ملف الحزم وتثبيت المكتبات
+# نسخ ملفات الحزم وتثبيت المكتبات
 COPY package*.json ./
 RUN npm install
 RUN npm install express
 
-# نسخ باقي ملفات المشروع
+# نسخ كل الملفات والمجلدات الفرعية للمشروع
 COPY . .
 
-# تشغيل ملف الـ server.js الجديد الذي قمنا بإنشائه
+# تشغيل السيرفر الوهمي من المجلد الرئيسي
 CMD [ "node", "server.js" ]
